@@ -87,16 +87,16 @@ export default class Home extends Component {
                 <div className="col-md-12">
                   <br />
                   <br />
-
-                  <center>
+                  <p className="text-center">
                     <Link to="/signup">
                       <img src={Btn3} alt="" />
                     </Link>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <Link to="/signin">
-                      <img src={Btn4} alt="" />
+                      <img src={Btn4} className="img-fluid" alt="" />
                     </Link>
-                  </center>
+                  </p>
+                  >
                 </div>
               </div>
             </div>
