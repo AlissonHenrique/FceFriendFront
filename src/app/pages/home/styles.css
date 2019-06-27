@@ -1,0 +1,104 @@
+.box {
+  background-image: url("../../../assets/img/background.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.box p {
+  font-size: 28px;
+  color: #fff;
+}
+
+.box p span {
+  color: #ffc829;
+  font-size: 30px;
+  font-weight: bold;
+}
+.box .col-md-6 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 660px;
+}
+
+.box-two {
+  background-color: #fcfcfc;
+  padding: 75px 0;
+}
+.box-two h1 {
+  text-align: center;
+  color: #05213c;
+  font-size: 40px;
+  font-weight: bold;
+}
+.box-two h2 {
+  text-align: center;
+  color: #05213c;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 20px 0 10px 0;
+}
+.box-two span {
+  font-size: 14px;
+  line-height: 10px;
+  color: #23282a;
+  font-weight: 300;
+}
+.box-two .col {
+  padding: 0 0px;
+  text-align: center;
+}
+.box-tre {
+  background-color: #11b1c9;
+  padding: 75px 0;
+}
+.box-tre h1 {
+  background-color: #11b1c9;
+  text-align: center;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.card-header {
+  background-color: #11b1c9;
+}
+.card {
+  border: none;
+  border-bottom: 1px solid #e3e6f0 !important;
+  box-shadow: none;
+}
+.card-header {
+  padding: 15px 0;
+}
+.card .btn-link {
+  color: #fff;
+  font-size: 24px;
+  text-align: left;
+}
+.card i {
+  color: #ffc829;
+}
+
+.box-four {
+  background-color: #000f26;
+  padding: 45px 0;
+  text-align: justify;
+}
+.box-four a {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+}
+.box-four .col {
+  padding: 0 0 30px 0;
+  text-align: center;
+}
+.box-five {
+  background-color: #002238;
+  padding: 10px 0;
+  color: #fff;
+  text-align: center;
+}

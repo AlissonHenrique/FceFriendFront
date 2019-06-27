@@ -1,0 +1,24 @@
+.navbar {
+  background-color: #11b1c9;
+}
+.fundo-nav {
+  background-color: #11b1c9;
+  height: 61px;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: #fff;
+}
+.nav-item {
+  border-right: 1px solid #fff;
+  padding: 0 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.navbar-text {
+  color: #fff !important;
+}
+.navbar-text a {
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 600;
+}
