@@ -62,23 +62,14 @@ export default class List extends Component {
                 <table className="table table-hover">
                   <thead>
                     <tr>
-                      <th scope="col">Aluno</th>
-                      <th scope="col">Email</th>
-                      <th scope="col">Telefone</th>
-                      <th scope="col">CPF</th>
-                      <th scope="col">Estado</th>
-                      <th scope="col">Cidade</th>
+                      <th scope="col">Aluno</th>><th scope="col">CPF</th>
                     </tr>
                   </thead>
                   <tbody>
                     {this.state.dados.map(val => (
                       <tr key={val._id}>
                         <td>{val.name}</td>
-                        <td>{val.email}</td>
-                        <td>{val.phone}</td>
                         <td>{val.cpf}</td>
-                        <td>{val.state}</td>
-                        <td>{val.city}</td>
                       </tr>
                     ))}
                   </tbody>

@@ -247,16 +247,26 @@ export default class Home extends Component {
           <div className="container">
             <div className="row">
               <div className="col">
-                <a href="/">Regulamento</a>
+                <a
+                  href="http://fce.edu.br/pdf/regulamentoFechou.pdf"
+                  target="_blank"
+                >
+                  Regulamento
+                </a>
               </div>
               <div className="col">
-                <a href="/">Cadastro</a>
+                <Link to="/signup">Cadastro</Link>
               </div>
               <div className="col">
                 <a href="/">Dúvidas</a>
               </div>
               <div className="col">
-                <a href="/">Fale Conosco</a>
+                <a
+                  href="https://api.whatsapp.com/send?phone=5511950371990"
+                  target="_blank"
+                >
+                  11 9503-71990
+                </a>
               </div>
             </div>
           </div>
