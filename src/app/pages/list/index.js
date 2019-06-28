@@ -62,7 +62,8 @@ export default class List extends Component {
                 <table className="table table-hover">
                   <thead>
                     <tr>
-                      <th scope="col">Aluno</th>><th scope="col">CPF</th>
+                      <th scope="col">Aluno</th>
+                      <th scope="col">CPF</th>
                     </tr>
                   </thead>
                   <tbody>
