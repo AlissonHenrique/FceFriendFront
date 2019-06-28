@@ -47,7 +47,11 @@ export default class Navbar extends Component {
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a href="/#regulamento" className="nav-link">
+                      <a
+                        href=" http://fce.edu.br/pdf/regulamentoFechou.pdf"
+                        target="_blank"
+                        className="nav-link"
+                      >
                         Regulamento
                       </a>
                     </li>

@@ -27,10 +27,11 @@ export default class Home extends Component {
               </div>
               <div className="col-md-6">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Participe da campanha <br />
+                  “Fechou Ganhou”. <br />
+                  Ganhe <span>R$ 100,00 </span>por matrícula de suas indicações.
                   <br />
-                  <span>R$ 100,00</span>. Pellentesque cursus blandit lacus,
-                  quis consectetur neque
+                  Participe!
                   <br />
                   <br />
                   <Link to="/signup">
@@ -58,9 +59,7 @@ export default class Home extends Component {
                   <br />
 
                   <h2>1. Cadastre-se</h2>
-                  <span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </span>
+                  <span>Faça seu cadastro como INDICADOR DE ALUNOS...</span>
                 </div>
                 <div className="col">
                   <img src={Right} alt="Right" className="img-fluid" />
@@ -69,7 +68,7 @@ export default class Home extends Component {
                   <img src={Friend} alt="Friend" className="img-fluid" />
                   <h2>1. Indique alunos</h2>
                   <span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Comece a INDICAR, indique quantos amigos desejar...
                   </span>
                 </div>
                 <div className="col">
@@ -78,9 +77,7 @@ export default class Home extends Component {
                 <div className="col">
                   <img src={Price} alt="Price" className="img-fluid" />
                   <h2>1. Receba seu crédito</h2>
-                  <span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </span>
+                  <span>Retire seu Voucher para receber seus créditos...</span>
                 </div>
               </div>
               <div className="row">
@@ -134,8 +131,10 @@ export default class Home extends Component {
                         data-parent="#accordionExample"
                       >
                         <div className="card-body">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high
-                          life accusamus terry richardson ad squid. 3 wolf moon
+                          Para participar, bastar se cadastrar em nosso site e
+                          começar a indicar, quanto mais indicações melhor. Cada
+                          matrícula realizada, você ganha premios em dinheiro,
+                          participe!
                         </div>
                       </div>
                     </div>
@@ -162,9 +161,10 @@ export default class Home extends Component {
                         data-parent="#accordionExample"
                       >
                         <div className="card-body">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high
-                          life accusamus terry richardson ad squid. 3 wolf moon
-                          officia aute, non cupidatat skateboard dolor brunch.
+                          Você pode indicar quantos alunos desejar, desta forma
+                          não economize seu tempo, cadastre todos os seus
+                          amigos, quanto mais melhor e maiores chances de
+                          ganhar. Nâo fique de fora!!
                         </div>
                       </div>
                     </div>
@@ -191,9 +191,16 @@ export default class Home extends Component {
                         data-parent="#accordionExample"
                       >
                         <div className="card-body">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high
-                          life accusamus terry richardson ad squid. 3 wolf moon
-                          officia aute, non cupidatat skateboard dolor brunch.
+                          A Promoção "Fechou Ganhou" tem o período previsto para
+                          inicio em 01/07/2019 a 30/09/2019, podendo ser
+                          extendida pela Faculdade Campos Elíseos, como também
+                          aumentando seu raio de alcance promocional. Por isso
+                          não fique de fora dessa! Pegue sua agenda de contatos
+                          e comece a indicar, todas as suas indicações ficaram
+                          visiveis para você, como também o status de oferta e
+                          compra de nossos produtos. Seja gestor de suas
+                          próprias vendas, ganhe dinheiro sem sair de casa. Seja
+                          bem vindo ao novo Universo de Possibilidades.
                         </div>
                       </div>
                     </div>
@@ -220,9 +227,13 @@ export default class Home extends Component {
                         data-parent="#accordionExample"
                       >
                         <div className="card-body">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high
-                          life accusamus terry richardson ad squid. 3 wolf moon
-                          officia aute, non cupidatat skateboard dolor brunch.
+                          Com a confirmação do pagamento da matrícula pelo nosso
+                          Departamento Financeiro, você receberá um "Voucher"
+                          para preencher e informar seus dados para serem
+                          imediatamente depositados os valores de seus créditos
+                          de indicações consolidadas em sua conta corrente. Você
+                          terá o controle e andamento de suas indicações pelo
+                          nosso Portal de Indicações.
                         </div>
                       </div>
                     </div>
@@ -247,18 +258,6 @@ export default class Home extends Component {
               <div className="col">
                 <a href="/">Fale Conosco</a>
               </div>
-              <div className="col-md-12">
-                <p>
-                  Lorem ipsum at platea ullamcorper lorem luctus pharetra
-                  pulvinar vulputate, interdum fames semper proin senectus vel
-                  torquent ac, vehicula semper fringilla hac duis eros sem
-                  donec. magna donec ligula justo netus convallis pharetra
-                  venenatis suspendisse habitasse, platea suscipit ad taciti
-                  urna metus egestas proin tempus, purus consectetur lacinia
-                  ullamcorper himenaeos auctor senectus ad. pretium fusce rutrum
-                  ornare scelerisque ornare.
-                </p>
-              </div>
             </div>
           </div>
         </div>
@@ -267,7 +266,7 @@ export default class Home extends Component {
             <div className="row">
               <div className="col">
                 FCE - Faculdade Campos Elíseos - www.fce.edu.br | © Copyright
-                2018
+                2019
               </div>
             </div>
           </div>
