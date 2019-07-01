@@ -250,6 +250,8 @@ export default class Home extends Component {
                 <a
                   href="http://fce.edu.br/pdf/regulamentoFechou.pdf"
                   target="_blank"
+                  without
+                  rel="noopener noreferrer"
                 >
                   Regulamento
                 </a>
@@ -264,6 +266,8 @@ export default class Home extends Component {
                 <a
                   href="https://api.whatsapp.com/send?phone=5511950371990"
                   target="_blank"
+                  without
+                  rel="noopener noreferrer"
                 >
                   11 9503-71990
                 </a>

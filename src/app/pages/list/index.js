@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from "react";
 import Header from "../../components/Header";
-import api from "../../../services/api";
+import { Link } from "react-router-dom";
 import { getSetId } from "../../../services/auth";
 import "./styles.css";
 import Logo from "../../../assets/img/logofechouganhou.png";
+import api from "../../../services/api";
 import moment from "moment";
 moment.locale("pt-br");
 export default class List extends Component {
@@ -64,8 +65,9 @@ export default class List extends Component {
                     <tr>
                       <th scope="col">Aluno</th>
                       <th scope="col">CPF</th>
-                      <th scope="col">STATUS</th>
-                      <th scope="col">VOUCHER</th>
+                      <th scope="col">Data Vencimento</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Voucher</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -73,8 +75,43 @@ export default class List extends Component {
                       <tr key={val._id}>
                         <td>{val.name}</td>
                         <td>{val.cpf}</td>
-                        <td>{val.status}</td>
-                        <td>{val.vaucher}</td>
+                        <td>
+                          {moment(val.dataVencimento).format("DD/MM/YYYY")}
+                        </td>
+                        <td>
+                          <div
+                            className={
+                              val.status === "Aguardando"
+                                ? "bg-info"
+                                : "" || val.status === "Aguardando pagamento"
+                                ? "bg-danger"
+                                : "" || val.status === "Pago"
+                                ? "bg-success"
+                                : ""
+                            }
+                          >
+                            {val.status}
+                          </div>
+                        </td>
+                        <td>
+                          <div
+                            className={
+                              val.voucher === "Aguardando pagamento"
+                                ? "bg-danger "
+                                : "bg-success "
+                            }
+                          >
+                            <Link
+                              to={
+                                val.voucher === "Aguardando pagamento"
+                                  ? "/list"
+                                  : "/voucherstudent"
+                              }
+                            >
+                              {val.voucher}
+                            </Link>
+                          </div>
+                        </td>
                       </tr>
                     ))}
                   </tbody>

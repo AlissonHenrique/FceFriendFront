@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { Form, Input, Select } from "@rocketseat/unform";
 import api from "../../../services/api";
-
+import Header from "../../components/Header";
 export default function Edit({ history, match }) {
   const [data, setData] = useState({});
 
   const options = [
-    { id: "Aguardando...", title: "Aguardando..." },
-    { id: "Aguardadando pagamento", title: "Aguardadando pagamento" },
+    { id: "Aguardando", title: "Aguardando" },
+    { id: "Aguardando pagamento", title: "Aguardando pagamento" },
     { id: "Pago", title: "Pago" }
+  ];
+  const option = [
+    { id: "Aguardando pagamento", title: "Aguardando" },
+    { id: "Retirar Voucher", title: "Reirat Voucher" }
   ];
 
   async function handleSubmit(data) {
@@ -31,31 +35,42 @@ export default function Edit({ history, match }) {
   }, [match.params, match.params.id]);
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-12 card">
-          <div className="card-body">
-            <Form initialData={data} onSubmit={handleSubmit}>
-              <div className="form-row">
-                <div className="form-group col-md-4">
-                  <label htmlFor="inputEmail4">Nome</label>
-                  <Input name="name" className="form-control" />
+    <Fragment>
+      <Header />
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12 card">
+            <div className="card-body">
+              <Form initialData={data} onSubmit={handleSubmit}>
+                <div className="form-row">
+                  <div className="form-group col-md-4">
+                    <label htmlFor="inputEmail4">Nome</label>
+                    <Input name="name" className="form-control" />
+                  </div>
+                  <div className="form-group col-md-4">
+                    <label htmlFor="inputEmail4">Status</label>
+                    <Select
+                      name="status"
+                      options={options}
+                      className="form-control"
+                    />
+                  </div>
+                  <div className="form-group col-md-4">
+                    <label htmlFor="inputEmail4">Voucher</label>
+                    <Select
+                      name="voucher"
+                      options={option}
+                      className="form-control"
+                    />
+                  </div>
                 </div>
-                <div className="form-group col-md-4">
-                  <label htmlFor="inputEmail4">Status</label>
-                  <Select
-                    name="status"
-                    options={options}
-                    className="form-control"
-                  />
-                </div>
-              </div>
 
-              <button type="submit">Enviar</button>
-            </Form>
+                <button type="submit">Enviar</button>
+              </Form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Fragment>
   );
 }

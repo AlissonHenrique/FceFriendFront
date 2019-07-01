@@ -28,3 +28,13 @@
   font-weight: bold;
   color: #000041;
 }
+
+th {
+  text-align: center;
+}
+td a {
+  color: #fff;
+}
+td a:hover {
+  color: #fff;
+}

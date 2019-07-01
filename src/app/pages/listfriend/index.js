@@ -65,6 +65,8 @@ export default class ListFriend extends Component {
                       <th scope="col">CPF</th>
                       <th scope="col">STATUS</th>
                       <th scope="col">DT. CADASTRO</th>
+                      <th scope="col">DT. VENCIMENTO</th>
+                      <th scope="col">VOUCHER</th>
                       <th scope="col">EDITAR</th>
                     </tr>
                   </thead>
@@ -73,8 +75,46 @@ export default class ListFriend extends Component {
                       <tr key={val._id}>
                         <td>{val.name}</td>
                         <td>{val.cpf}</td>
-                        <td>{val.status}</td>
+
+                        <td>
+                          <div
+                            className={
+                              val.status === "Aguardando"
+                                ? "bg-info"
+                                : "" || val.status === "Aguardando pagamento"
+                                ? "bg-danger"
+                                : "" || val.status === "Pago"
+                                ? "bg-success"
+                                : ""
+                            }
+                          >
+                            {val.status}
+                          </div>
+                        </td>
+
                         <td>{moment(val.created_at).format("DD/MM/YYYY")}</td>
+                        <td>
+                          {moment(val.dataVencimento).format("DD/MM/YYYY")}
+                        </td>
+                        <td>
+                          <div
+                            className={
+                              val.voucher === "Aguardando pagamento"
+                                ? "bg-danger "
+                                : "bg-success "
+                            }
+                          >
+                            <Link
+                              to={
+                                val.voucher === "Aguardando pagamento"
+                                  ? "/list"
+                                  : "/voucherstudent"
+                              }
+                            >
+                              {val.voucher}
+                            </Link>
+                          </div>
+                        </td>
                         <td>
                           <Link
                             to={`/addfriend/edit/${val._id}`}
