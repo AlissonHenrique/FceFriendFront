@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from "react";
 import Header from "../../components/Header";
 import api from "../../../services/api";
-import { getSetId } from "../../../services/auth";
+import { Link } from "react-router-dom";
 import "./styles.css";
 import Logo from "../../../assets/img/logofechouganhou.png";
 import moment from "moment";
-moment.locale("pt-br");
-export default class List extends Component {
+
+export default class ListFriend extends Component {
   state = {
     dados: [],
     info: [],
@@ -17,8 +17,7 @@ export default class List extends Component {
     this.load();
   }
   load = async (page = 1) => {
-    const id = getSetId();
-    const response = await api.get(`/ads?id=${id}&page=${page}`);
+    const response = await api.get(`/ads?&page=${page}`);
     const { docs, ...info } = response.data;
     this.setState({ dados: docs, info, page });
   };
@@ -62,10 +61,11 @@ export default class List extends Component {
                 <table className="table table-hover">
                   <thead>
                     <tr>
-                      <th scope="col">Aluno</th>
+                      <th scope="col">ALUNO</th>
                       <th scope="col">CPF</th>
                       <th scope="col">STATUS</th>
-                      <th scope="col">VOUCHER</th>
+                      <th scope="col">DT. CADASTRO</th>
+                      <th scope="col">EDITAR</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -74,7 +74,15 @@ export default class List extends Component {
                         <td>{val.name}</td>
                         <td>{val.cpf}</td>
                         <td>{val.status}</td>
-                        <td>{val.vaucher}</td>
+                        <td>{moment(val.created_at).format("DD/MM/YYYY")}</td>
+                        <td>
+                          <Link
+                            to={`/addfriend/edit/${val._id}`}
+                            className="btn btn-warning"
+                          >
+                            Editar
+                          </Link>
+                        </td>
                       </tr>
                     ))}
                   </tbody>

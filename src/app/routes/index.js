@@ -9,6 +9,9 @@ import Ad from "../pages/ad";
 import List from "../pages/list";
 import Indicators from "../pages/indicators";
 import Home from "../pages/home";
+import ListFriend from "../pages/listfriend";
+import Edit from "../pages/edit";
+
 // autentica rotas
 const PrivateRout = ({ component: Component, ...rest }) => (
   <Route
@@ -32,6 +35,8 @@ const Routes = () => (
       <Route path="/signup" component={Signup} />
       <PrivateRout path="/list" component={List} />
       <Route path="/indicators" component={Indicators} />
+      <Route path="/listfriend" component={ListFriend} />
+      <Route path="/addfriend/edit/:id" component={Edit} />
     </Switch>
   </BrowserRouter>
 );
