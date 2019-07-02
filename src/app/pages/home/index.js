@@ -21,7 +21,9 @@ export default class Home extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-6">
-                <img src={Logo} alt="logo" className="img-fluid" />
+                <figure>
+                  <img src={Logo} alt="logo" className="img-fluid" />
+                </figure>
               </div>
               <div className="col-md-6">
                 <p>
@@ -91,6 +93,7 @@ export default class Home extends Component {
                       <img src={Btn4} className="img-fluid" alt="" />
                     </Link>
                   </p>
+                  >
                 </div>
               </div>
             </div>
@@ -243,28 +246,24 @@ export default class Home extends Component {
         <div className="box-four">
           <div className="container">
             <div className="row">
-              <div className="col-md-3">
+              <div className="col">
                 <a
                   href="http://fce.edu.br/pdf/regulamentoFechou.pdf"
                   target="_blank"
-                  without="true"
-                  rel="noopener noreferrer"
                 >
                   Regulamento
                 </a>
               </div>
-              <div className="col-md-3">
+              <div className="col">
                 <Link to="/signup">Cadastro</Link>
               </div>
-              <div className="col-md-3">
+              <div className="col">
                 <a href="/">Dúvidas</a>
               </div>
-              <div className="col-md-3">
+              <div className="col">
                 <a
                   href="https://api.whatsapp.com/send?phone=5511950371990"
                   target="_blank"
-                  without="true"
-                  rel="noopener noreferrer"
                 >
                   11 9503-71990
                 </a>
