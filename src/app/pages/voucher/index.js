@@ -22,7 +22,7 @@ export default function Voucher() {
       console.log(response);
       setMessage("Obrigado. Em breve entraremos em contato");
     } catch (err) {
-      setMessage(err);
+      setMessage("Ops. tente novamente");
       console.log(err);
     }
   }
@@ -65,7 +65,7 @@ export default function Voucher() {
                 <button type="submit">Enviar</button>
               </Form>
               <br />
-              {message.length > 1 ? (
+              {message ? (
                 <p className="alert alert-danger text-center">{message}</p>
               ) : (
                 <span />
