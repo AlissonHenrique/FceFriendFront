@@ -12,7 +12,7 @@ export default function Edit({ history, match }) {
   ];
   const option = [
     { id: "Aguardando pagamento", title: "Aguardando" },
-    { id: "Retirar Voucher", title: "Reirat Voucher" }
+    { id: "Retirar Voucher", title: "Retirar Voucher" }
   ];
 
   async function handleSubmit(data) {
