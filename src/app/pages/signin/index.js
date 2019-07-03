@@ -18,11 +18,11 @@ class Signup extends Component {
       login(response.data.token);
       username(name);
       setId(_id);
-      //this.props.history.push("/register");
+      this.props.history.push("/register");
       console.log(response);
     } catch (err) {
       console.log(err);
-      this.setState({ message: err.response.data.error });
+      //this.setState({ message: err.response.data.error });
     }
   };
 
