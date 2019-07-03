@@ -1,14 +1,7 @@
 import axios from "axios";
 import { getToken } from "./auth";
 
-const api = axios.create({ baseURL: "https://fcefriendback.herokuapp.com" });
-
-api.postOrPut = (url, id, data, config = {}) => {
-  const method = id ? "put" : "post";
-  const apiUrl = id ? `${url}/${id}` : url;
-
-  return api[method](apiUrl, data, config);
-};
+const api = axios.create({ baseURL: process.env.REACT_APP_API_URL });
 
 api.interceptors.request.use(async config => {
   const token = getToken();

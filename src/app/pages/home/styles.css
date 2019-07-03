@@ -21,7 +21,6 @@
   align-items: center;
   justify-content: center;
   height: 660px;
-  text-align: justify;
 }
 
 .box-two {
@@ -85,7 +84,7 @@
 
 .box-four {
   background-color: #000f26;
-  padding: 45px 0 45px 0;
+  padding: 45px 0;
   text-align: justify;
 }
 .box-four a {
@@ -102,15 +101,4 @@
   padding: 10px 0;
   color: #fff;
   text-align: center;
-}
-@media (max-width: 414px) {
-  .box .col-md-6 {
-    height: 420px;
-  }
-  .box .col-md-6 .img-fluid {
-    width: 80%;
-  }
-  .card .btn-link {
-    font-size: 16px;
-  }
 }
