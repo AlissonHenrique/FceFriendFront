@@ -19,10 +19,9 @@ class Signup extends Component {
       username(name);
       setId(_id);
       this.props.history.push("/register");
-      console.log(response);
     } catch (err) {
       console.log(err);
-      //this.setState({ message: err.response.data.error });
+      this.setState({ message: err.response.data.error });
     }
   };
 
