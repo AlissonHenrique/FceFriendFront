@@ -1,13 +1,12 @@
 import React, { Component, Fragment } from "react";
 import Header from "../../components/Header";
+import api from "../../../services/api";
 import { Link } from "react-router-dom";
-import { getSetId } from "../../../services/auth";
 import "./styles.css";
 import Logo from "../../../assets/img/logofechouganhou.png";
-import api from "../../../services/api";
 import moment from "moment";
-moment.locale("pt-br");
-export default class List extends Component {
+
+export default class ListFriend extends Component {
   state = {
     dados: [],
     info: [],
@@ -18,8 +17,7 @@ export default class List extends Component {
     this.load();
   }
   load = async (page = 1) => {
-    const id = getSetId();
-    const response = await api.get(`/ads?id=${id}&page=${page}`);
+    const response = await api.get(`/ads?&page=${page}`);
     const { docs, ...info } = response.data;
     this.setState({ dados: docs, info, page });
   };
@@ -63,11 +61,13 @@ export default class List extends Component {
                 <table className="table table-hover">
                   <thead>
                     <tr>
-                      <th scope="col">Aluno</th>
+                      <th scope="col">ALUNO</th>
                       <th scope="col">CPF</th>
-                      <th scope="col">Data Vencimento</th>
-                      <th scope="col">Status</th>
-                      <th scope="col">Voucher</th>
+                      <th scope="col">STATUS</th>
+                      <th scope="col">DT. CADASTRO</th>
+                      <th scope="col">DT. VENCIMENTO</th>
+                      <th scope="col">VOUCHER</th>
+                      <th scope="col">EDITAR</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -75,9 +75,7 @@ export default class List extends Component {
                       <tr key={val._id}>
                         <td>{val.name}</td>
                         <td>{val.cpf}</td>
-                        <td>
-                          {moment(val.dataVencimento).format("DD/MM/YYYY")}
-                        </td>
+
                         <td>
                           <div
                             className={
@@ -92,6 +90,11 @@ export default class List extends Component {
                           >
                             {val.status}
                           </div>
+                        </td>
+
+                        <td>{moment(val.created_at).format("DD/MM/YYYY")}</td>
+                        <td>
+                          {moment(val.dataVencimento).format("DD/MM/YYYY")}
                         </td>
                         <td>
                           <div
@@ -111,6 +114,14 @@ export default class List extends Component {
                               {val.voucher}
                             </Link>
                           </div>
+                        </td>
+                        <td>
+                          <Link
+                            to={`/addfriend/edit/${val._id}`}
+                            className="btn btn-warning"
+                          >
+                            Editar
+                          </Link>
                         </td>
                       </tr>
                     ))}

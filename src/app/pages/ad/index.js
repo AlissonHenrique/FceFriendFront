@@ -1,43 +1,45 @@
-import React, { Fragment, useState } from 'react';
-import { Form, Input } from '@rocketseat/unform';
-import { withRouter } from 'react-router-dom';
-import * as Yup from 'yup';
-import { getSetId, getUsername } from '../../../services/auth';
-import Header from '../../components/Header';
-import api from '../../../services/api';
-import './styles.css';
-import { phoneMask, cpfMask } from '../../../utils/masks';
-import Logo from '../../../assets/img/logofechouganhou.png';
+import React, { Fragment, useState } from "react";
+import { Form, Input } from "@rocketseat/unform";
+import { withRouter } from "react-router-dom";
+import * as Yup from "yup";
+import { getSetId, getUsername } from "../../../services/auth";
+import Header from "../../components/Header";
+import api from "../../../services/api";
+import "./styles.css";
+import { phoneMask, cpfMask } from "../../../utils/masks";
+import Logo from "../../../assets/img/logofechouganhou.png";
 
 const schema = Yup.object().shape({
-  name: Yup.string().required('Preencha o campo Nome'),
+  name: Yup.string().required("Preencha o campo Nome"),
   email: Yup.string()
-    .email('Preencha com um email válido')
-    .required('Preencha o campo email'),
-  phone: Yup.string('Preencha com um número válido').required('Preencha o campo Celular'),
+    .email("Preencha com um email válido")
+    .required("Preencha o campo email"),
+  phone: Yup.string("Preencha com um número válido").required(
+    "Preencha o campo Celular"
+  ),
   cpf: Yup.string()
-    .min(14, 'Preencha o campo CPF')
-    .required('Preencha o campo CPF'),
+    .min(14, "Preencha o campo CPF")
+    .required("Preencha o campo CPF")
 });
 
 function Ad(props) {
-  const [phone, setPhone] = useState('');
-  const [cpf, setCpf] = useState('');
-  const [message, setMessage] = useState('');
+  const [phone, setPhone] = useState("");
+  const [cpf, setCpf] = useState("");
+  const [message, setMessage] = useState("");
   function handleSubmit(data, { resetForm }) {
     const id = getSetId();
     const userName = getUsername();
     const obj = { ...data, user_id: id, user_name: userName };
 
-    api.post('/ads', obj).then(
-      (response) => {
+    api.post("/ads", obj).then(
+      response => {
         console.log(response);
-        props.history.push('/list');
+        props.history.push("/list");
       },
-      (error) => {
+      error => {
         setMessage(error.response.data.error);
         resetForm();
-      },
+      }
     );
     resetForm();
   }
@@ -91,14 +93,18 @@ function Ad(props) {
 
                   <div className="form-group col-md-12">
                     {message.length > 1 ? (
-                      <p className="alert alert-danger text-center">{message}</p>
+                      <p className="alert alert-danger text-center">
+                        {message}
+                      </p>
                     ) : (
                       <span />
                     )}
                   </div>
                 </div>
 
-                <button type="submit">Enviar</button>
+                <button className="btn-yellow" type="submit">
+                  Enviar
+                </button>
               </Form>
             </div>
           </div>

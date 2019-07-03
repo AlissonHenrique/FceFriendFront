@@ -1,7 +1,14 @@
 import axios from "axios";
 import { getToken } from "./auth";
 
-const api = axios.create({ baseURL: process.env.REACT_APP_API_URL });
+const api = axios.create({ baseURL: "http://localhost:3001" });
+
+api.postOrPut = (url, id, data, config = {}) => {
+  const method = id ? "put" : "post";
+  const apiUrl = id ? `${url}/${id}` : url;
+
+  return api[method](apiUrl, data, config);
+};
 
 api.interceptors.request.use(async config => {
   const token = getToken();
