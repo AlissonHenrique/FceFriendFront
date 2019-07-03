@@ -1,45 +1,47 @@
-import React, { useState, Fragment } from 'react';
-import { Form, Input } from '@rocketseat/unform';
-import { withRouter } from 'react-router-dom';
-import * as Yup from 'yup';
-import api from '../../../services/api';
-import './styles.css';
-import { phoneMask, cpfMask } from '../../../utils/masks';
-import Logo from '../../../assets/img/logofechouganhou.png';
+import React, { useState, Fragment } from "react";
+import { Form, Input } from "@rocketseat/unform";
+import { withRouter } from "react-router-dom";
+import * as Yup from "yup";
+import api from "../../../services/api";
+import "./styles.css";
+import { phoneMask, cpfMask } from "../../../utils/masks";
+import Logo from "../../../assets/img/logofechouganhou.png";
 
-import Navbar from '../../components/Navbar';
+import Navbar from "../../components/Navbar";
 
 function Signup(props) {
   const { history } = props;
-  const [phone, setPhone] = useState('');
-  const [cpf, setCpf] = useState('');
-  const [message, setMessage] = useState('');
+  const [phone, setPhone] = useState("");
+  const [cpf, setCpf] = useState("");
+  const [message, setMessage] = useState("");
 
   const schema = Yup.object().shape({
-    name: Yup.string().required('*Preencha o campo Nome'),
+    name: Yup.string().required("*Preencha o campo Nome"),
     email: Yup.string()
-      .email('*Preencha com um email válido')
-      .required('*Preencha o campo email'),
-    phone: Yup.string('*Preencha com um número válido').required('*Preencha o campo Celular'),
+      .email("*Preencha com um email válido")
+      .required("*Preencha o campo email"),
+    phone: Yup.string("*Preencha com um número válido").required(
+      "*Preencha o campo Celular"
+    ),
     cpf: Yup.string()
-      .min(14, '*Preencha o campo CPF')
-      .required('*Preencha o campo CPF'),
+      .min(14, "*Preencha o campo CPF")
+      .required("*Preencha o campo CPF"),
     state: Yup.string()
-      .min(2, '*Preencha o campo Estado')
-      .required('*Preencha o campo Estado'),
-    city: Yup.string().required('*Preencha o campo Cidade'),
+      .min(2, "*Preencha o campo Estado")
+      .required("*Preencha o campo Estado"),
+    city: Yup.string().required("*Preencha o campo Cidade")
   });
 
   function handleSubmit(data) {
-    api.post('/users', data).then(
-      (response) => {
+    api.post("/users", data).then(
+      response => {
         console.log(response);
-        history.push('/signin');
+        history.push("/register");
       },
-      (error) => {
+      error => {
         console.log(error.response.data.error);
         setMessage(error.response.data.error);
-      },
+      }
     );
   }
   return (
@@ -136,9 +138,7 @@ function Signup(props) {
                     <span />
                   )}
                   <button type="submit">
-                    Criar conta
-                    {' '}
-                    <i className="fas fa-chevron-right" />
+                    Criar conta <i className="fas fa-chevron-right" />
                   </button>
                 </Form>
               </div>
