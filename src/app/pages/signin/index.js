@@ -12,29 +12,17 @@ class Signup extends Component {
   };
   componentDidMount() {}
   handleSubmit = async data => {
-    // await api.post("/session", data).then(
-    //   response => {
-    //     const { name, _id } = response.data.user;
-    //     login(response.data.token);
-    //     username(name);
-    //     setId(_id);
-    //     this.props.history.push("/signin");
-    //   },
-    //   error => {
-    //     console.log(error.response.data.error);
-    //     this.setState(error.response.data.error);
-    //   }
-    // );
     try {
       const response = await api.post("/session", data);
       const { name, _id } = response.data.user;
       login(response.data.token);
       username(name);
       setId(_id);
-      window.location.href = "/register";
+      //this.props.history.push("/register");
+      console.log(response);
     } catch (err) {
       console.log(err);
-      //this.setState({ message: err.response.data.error });
+      this.setState({ message: err.response.data.error });
     }
   };
 
