@@ -13,38 +13,31 @@ class Signup extends Component {
 
   componentDidMount() {}
   handleSubmit = async data => {
-    let axiosConfig = {
-      headers: {
-        "Content-Type": "application/json;charset=UTF-8",
-        "Access-Control-Allow-Origin": "*"
-      }
-    };
+    // api
+    //   .post("/session", data, axiosConfig)
+    //   .then(res => {
+    //     const { name, _id } = res.data.user;
+    //     login(res.data.token);
+    //     username(name);
+    //     setId(_id);
+    //     this.props.history.push("/register");
+    //   })
+    //   .catch(err => {
+    //     console.log("AXIOS ERROR: ", err);
+    //   });
 
-    api
-      .post("/session", data, axiosConfig)
-      .then(res => {
-        const { name, _id } = res.data.user;
-        login(res.data.token);
-        username(name);
-        setId(_id);
-        this.props.history.push("/register");
-      })
-      .catch(err => {
-        console.log("AXIOS ERROR: ", err);
-      });
-
-    // try {
-    //   const response = await api.post("/session", headers, data);
-    //   const { name, _id } = response.data.user;
-    //   login(response.data.token);
-    //   username(name);
-    //   setId(_id);
-    //   console.log(response);
-    //   this.props.history.push("/register");
-    // } catch (err) {
-    //   console.log(err);
-    //   this.setState({ message: err.response.data.error });
-    // }
+    try {
+      const response = await api.post("/session", data);
+      const { name, _id } = response.data.user;
+      login(response.data.token);
+      username(name);
+      setId(_id);
+      console.log(response);
+      this.props.history.push("/register");
+    } catch (err) {
+      console.log(err);
+      this.setState({ message: err.response.data.error });
+    }
   };
 
   render() {
