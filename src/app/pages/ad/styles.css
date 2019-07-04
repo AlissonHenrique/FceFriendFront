@@ -16,3 +16,9 @@ center img {
   font-weight: bold;
   color: #000041;
 }
+.card-body .subtit {
+  color: black;
+}
+.card-body h4 {
+  font-weight: bold;
+}

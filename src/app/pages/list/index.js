@@ -75,9 +75,7 @@ export default class List extends Component {
                       <tr key={val._id}>
                         <td>{val.name}</td>
                         <td>{val.cpf}</td>
-                        <td>
-                          {moment(val.dataVencimento).format("DD/MM/YYYY")}
-                        </td>
+                        <td>{val.dataVencimento}</td>
                         <td>
                           <div
                             className={
@@ -96,14 +94,14 @@ export default class List extends Component {
                         <td>
                           <div
                             className={
-                              val.voucher === "Aguardando pagamento"
-                                ? "bg-danger "
+                              val.voucher === "Aguardando"
+                                ? "bg-info "
                                 : "bg-success "
                             }
                           >
                             <Link
                               to={
-                                val.voucher === "Aguardando pagamento"
+                                val.voucher === "Aguardando"
                                   ? "/list"
                                   : "/voucherstudent"
                               }

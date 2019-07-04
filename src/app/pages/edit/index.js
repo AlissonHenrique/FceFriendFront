@@ -11,7 +11,7 @@ export default function Edit({ history, match }) {
     { id: "Pago", title: "Pago" }
   ];
   const option = [
-    { id: "Aguardando pagamento", title: "Aguardando" },
+    { id: "Aguardando", title: "Aguardando" },
     { id: "Retirar Voucher", title: "Retirar Voucher" }
   ];
 
@@ -48,9 +48,10 @@ export default function Edit({ history, match }) {
                     <Input name="name" className="form-control" />
                   </div>
                   <div className="form-group col-md-4">
-                    <label htmlFor="inputEmail4">Data do vencimento</label>
+                    <label htmlFor="dataVencimento">Data do vencimento</label>
                     <Input name="dataVencimento" className="form-control" />
                   </div>
+
                   <div className="form-group col-md-4">
                     <label htmlFor="inputEmail4">Status</label>
                     <Select

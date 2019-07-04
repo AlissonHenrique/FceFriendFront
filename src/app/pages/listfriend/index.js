@@ -63,10 +63,13 @@ export default class ListFriend extends Component {
                     <tr>
                       <th scope="col">ALUNO</th>
                       <th scope="col">CPF</th>
-                      <th scope="col">STATUS</th>
-                      <th scope="col">DT. CADASTRO</th>
-                      <th scope="col">DT. VENCIMENTO</th>
-                      <th scope="col">VOUCHER</th>
+                      <th scope="col">Telefone</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Dt. Cadastro</th>
+                      <th scope="col">Dt. Vencimento</th>
+                      <th scope="col">Cd. Vendedor</th>
+                      <th scope="col">Voucher</th>
                       <th scope="col">EDITAR</th>
                     </tr>
                   </thead>
@@ -75,7 +78,8 @@ export default class ListFriend extends Component {
                       <tr key={val._id}>
                         <td>{val.name}</td>
                         <td>{val.cpf}</td>
-
+                        <td>{val.phone}</td>
+                        <td>{val.email}</td>
                         <td>
                           <div
                             className={
@@ -93,20 +97,19 @@ export default class ListFriend extends Component {
                         </td>
 
                         <td>{moment(val.created_at).format("DD/MM/YYYY")}</td>
-                        <td>
-                          {moment(val.dataVencimento).format("DD/MM/YYYY")}
-                        </td>
+                        <td>{val.dataVencimento}</td>
+                        <td>{val.code}</td>
                         <td>
                           <div
                             className={
-                              val.voucher === "Aguardando pagamento"
-                                ? "bg-danger "
+                              val.voucher === "Aguardando"
+                                ? "bg-info "
                                 : "bg-success "
                             }
                           >
                             <Link
                               to={
-                                val.voucher === "Aguardando pagamento"
+                                val.voucher === "Aguardando"
                                   ? "/list"
                                   : "/voucherstudent"
                               }

@@ -9,19 +9,6 @@ import "./styles.css";
 import { phoneMask, cpfMask } from "../../../utils/masks";
 import Logo from "../../../assets/img/logofechouganhou.png";
 
-const schema = Yup.object().shape({
-  name: Yup.string().required("Preencha o campo Nome"),
-  email: Yup.string()
-    .email("Preencha com um email válido")
-    .required("Preencha o campo email"),
-  phone: Yup.string("Preencha com um número válido").required(
-    "Preencha o campo Celular"
-  ),
-  cpf: Yup.string()
-    .min(14, "Preencha o campo CPF")
-    .required("Preencha o campo CPF")
-});
-
 function Ad(props) {
   const [phone, setPhone] = useState("");
   const [cpf, setCpf] = useState("");
@@ -42,6 +29,7 @@ function Ad(props) {
       }
     );
     resetForm();
+    console.log(data);
   }
   return (
     <Fragment>
@@ -53,7 +41,12 @@ function Ad(props) {
         <div className="row">
           <div className="col-md-12 card">
             <div className="card-body">
-              <Form onSubmit={handleSubmit} schema={schema}>
+              <h4>Indique seus amigos!</h4>
+              <p className="subtit">
+                Comece a INDICAR, indique quantos amigos desejar...
+              </p>
+              <br />
+              <Form onSubmit={handleSubmit}>
                 <div className="form-row">
                   <div className="form-group col-md-4">
                     <label htmlFor="inputEmail4">Nome</label>
@@ -89,6 +82,10 @@ function Ad(props) {
                   <div className="form-group col-md-4">
                     <label htmlFor="city">Cidade</label>
                     <Input name="city" className="form-control" />
+                  </div>
+                  <div className="form-group col-md-4">
+                    <label htmlFor="code">Código do vendedor</label>
+                    <Input name="code" className="form-control" />
                   </div>
 
                   <div className="form-group col-md-12">
