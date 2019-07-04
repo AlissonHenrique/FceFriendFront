@@ -38,7 +38,7 @@ function Signup(props) {
     api.post("/users", data).then(
       response => {
         console.log(response);
-        history.push("/register");
+        history.push("/signin");
       },
       error => {
         console.log(error.response.data.error);
