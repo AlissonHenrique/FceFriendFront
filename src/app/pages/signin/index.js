@@ -13,7 +13,6 @@ class Signup extends Component {
 
   componentDidMount() {}
   handleSubmit = async data => {
-    
     try {
       const response = await api.post("/session", data);
       const { name, _id } = response.data.user;
@@ -26,7 +25,6 @@ class Signup extends Component {
       console.log(response);
       this.props.history.push("/register");
     } catch (err) {
-      console.log(err.response.data);
       this.setState({ message: err.response.data.error });
     }
   };

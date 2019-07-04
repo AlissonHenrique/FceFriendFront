@@ -23,6 +23,7 @@ function Signup(props) {
     phone: Yup.string("*Preencha com um número válido").required(
       "*Preencha o campo Celular"
     ),
+    password: Yup.string().required("*Preencha o campo Senha"),
     cpf: Yup.string()
       .min(14, "*Preencha o campo CPF")
       .required("*Preencha o campo CPF"),
@@ -33,6 +34,7 @@ function Signup(props) {
   });
 
   function handleSubmit(data) {
+    console.log(data);
     api.post("/users", data).then(
       response => {
         console.log(response);
