@@ -13,29 +13,20 @@ class Signup extends Component {
 
   componentDidMount() {}
   handleSubmit = async data => {
-    // api
-    //   .post("/session", data, axiosConfig)
-    //   .then(res => {
-    //     const { name, _id } = res.data.user;
-    //     login(res.data.token);
-    //     username(name);
-    //     setId(_id);
-    //     this.props.history.push("/register");
-    //   })
-    //   .catch(err => {
-    //     console.log("AXIOS ERROR: ", err);
-    //   });
-
+    
     try {
       const response = await api.post("/session", data);
       const { name, _id } = response.data.user;
+
+      ////insere no localstorage
       login(response.data.token);
       username(name);
       setId(_id);
+
       console.log(response);
       this.props.history.push("/register");
     } catch (err) {
-      console.log(err);
+      console.log(err.response.data);
       this.setState({ message: err.response.data.error });
     }
   };
