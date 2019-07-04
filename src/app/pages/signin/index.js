@@ -23,7 +23,7 @@ class Signup extends Component {
       setId(_id);
 
       console.log(response);
-      this.props.history.push("/register");
+      this.props.history.push("/signup");
     } catch (err) {
       this.setState({ message: err.response.data.error });
     }
