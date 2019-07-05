@@ -27,7 +27,8 @@ export default class Home extends Component {
                 <p>
                   Participe da campanha <br />
                   “Fechou Ganhou”. <br />
-                  Ganhe <span>R$ 100,00 </span>por matrícula de suas indicações.
+                  Ganhe <span>R$ 100,00 </span>por <br />
+                  matrícula de suas indicações.
                   <br />
                   Participe!
                   <br />
