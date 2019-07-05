@@ -58,7 +58,7 @@ export default class Home extends Component {
                   <br />
 
                   <h2>1. Cadastre-se</h2>
-                  <span>Faça seu cadastro como INDICADOR DE ALUNOS...</span>
+                  <span>Faça seu cadastro como INDICADOR DE ALUNOS</span>
                 </div>
                 <div className="col">
                   <img src={Right} alt="Right" className="img-fluid" />
@@ -67,7 +67,7 @@ export default class Home extends Component {
                   <img src={Friend} alt="Friend" className="img-fluid" />
                   <h2>1. Indique alunos</h2>
                   <span>
-                    Comece a INDICAR, indique quantos amigos desejar...
+                    Comece a INDICAR, indique quantos amigos desejar
                   </span>
                 </div>
                 <div className="col">
@@ -76,7 +76,7 @@ export default class Home extends Component {
                 <div className="col">
                   <img src={Price} alt="Price" className="img-fluid" />
                   <h2>1. Receba seu crédito</h2>
-                  <span>Retire seu Voucher para receber seus créditos...</span>
+                  <span>Retire seu Voucher para receber seus créditos</span>
                 </div>
               </div>
               <div className="row">
