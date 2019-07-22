@@ -27,8 +27,12 @@
   text-align: center;
   font-weight: bold;
   color: #000041;
+  border-radius: 4px;
 }
-
+.btn-warning {
+  font-size: 12px;
+  padding: 4px 5px;
+}
 th {
   text-align: center;
 }
@@ -37,4 +41,10 @@ td a {
 }
 td a:hover {
   color: #fff;
+}
+@media (max-width: 414px) {
+  .btn-list {
+    font-size: 11px;
+    padding: 0 6px;
+  }
 }

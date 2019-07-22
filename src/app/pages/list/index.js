@@ -60,7 +60,7 @@ export default class List extends Component {
           <div className="row">
             <div className="col-md-12 card">
               <div className="card-body">
-                <table className="table table-hover">
+                <table className="table table-hover table-responsive">
                   <thead>
                     <tr>
                       <th scope="col">Aluno</th>

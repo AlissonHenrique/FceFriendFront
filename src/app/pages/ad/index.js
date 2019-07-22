@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { Form, Input } from "@rocketseat/unform";
 import { withRouter } from "react-router-dom";
-import * as Yup from "yup";
+//import * as Yup from "yup";
 import { getSetId, getUsername } from "../../../services/auth";
 import Header from "../../components/Header";
 import api from "../../../services/api";
