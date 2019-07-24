@@ -101,7 +101,7 @@ function Signup(props) {
             </div>
             <div className="col-md-8 offset-md-2">
               <div className="card">
-                <Form onSubmit={handleSubmit}  >
+                <Form onSubmit={handleSubmit} schema={schema} >
                   <br />
 
                   <h1>Cadastro</h1>
