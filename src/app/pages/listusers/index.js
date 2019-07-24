@@ -4,7 +4,8 @@ import Logo from "../../../assets/img/logofechouganhou.png";
 import api from "../../../services/api";
 export default class Listusers extends Component {
   state = {
-    dados: []
+    users: '',
+    friends:''
   };
   componentDidMount() {
     this.load();
@@ -13,8 +14,10 @@ export default class Listusers extends Component {
   load = async () => {
     try {
       const response = await api.get("/users");
+      this.setState({ users: response.data.length });
+      const responsef = await api.get("/ads");
 
-      this.setState({ dados: response.data });
+      this.setState({ friends: responsef.data.docs.length });
     } catch (err) {
       console.log(err);
     }
@@ -34,17 +37,17 @@ export default class Listusers extends Component {
                 <table className="table table-hover table-responsive">
                   <thead>
                     <tr>
-                      <th scope="col">Registered users</th>
-                      <th scope="col">Friends</th>
+                      <th scope="col">Usuarios cadastrados</th>
+                      <th scope="col">Amigos Cadastrados</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {this.state.dados.map(val => (
-                      <tr key={val._id}>
-                        <td>{val.name}</td>
-                        <td>{val.user_id}</td>
+
+                      <tr >
+                        <td><center>{this.state.users}</center></td>
+                        <td><center>{this.state.friends}</center></td>
                       </tr>
-                    ))}
+
                   </tbody>
                 </table>
               </div>

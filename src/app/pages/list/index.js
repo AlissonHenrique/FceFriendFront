@@ -64,8 +64,6 @@ export default class List extends Component {
                   <thead>
                     <tr>
                       <th scope="col">Aluno</th>
-                      <th scope="col">CPF</th>
-                      <th scope="col">Data Vencimento</th>
                       <th scope="col">Status</th>
                       <th scope="col">Voucher</th>
                     </tr>
@@ -74,8 +72,7 @@ export default class List extends Component {
                     {this.state.dados.map(val => (
                       <tr key={val._id}>
                         <td>{val.name}</td>
-                        <td>{val.cpf}</td>
-                        <td>{val.dataVencimento}</td>
+
                         <td>
                           <div
                             className={

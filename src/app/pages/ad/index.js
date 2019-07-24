@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Form, Input } from "@rocketseat/unform";
+import { Form, Input,Select } from "@rocketseat/unform";
 import { withRouter } from "react-router-dom";
 //import * as Yup from "yup";
 import { getSetId, getUsername } from "../../../services/auth";
@@ -8,15 +8,54 @@ import api from "../../../services/api";
 import "./styles.css";
 import { phoneMask, cpfMask } from "../../../utils/masks";
 import Logo from "../../../assets/img/logofechouganhou.png";
+import {json_cidades,options} from '../signup/estados_cidades'
 
+
+function buscaCidades(e){
+
+  document.querySelector("#cidade").innerHTML = '';
+  var cidade_select = document.querySelector("#cidade");
+
+  var num_estados = json_cidades.estados.length;
+
+  var j_index = -1;
+
+  // aqui eu pego o index do Estado dentro do JSON
+  for(var x=0;x<num_estados;x++){
+     if(json_cidades.estados[x].sigla === e){
+        j_index = x;
+
+     }
+  }
+  if(j_index !== -1){
+   // aqui eu percorro todas as cidades e crio os OPTIONS
+
+     json_cidades.estados[j_index].cidades.forEach(function(cidade){
+
+
+        var cid_opts = document.createElement('option');
+        cid_opts.setAttribute('value',cidade)
+        cid_opts.innerHTML = cidade;
+        cidade_select.appendChild(cid_opts);
+
+     });
+
+  }else{
+     document.querySelector("#cidade").innerHTML = '';
+
+  }
+}
 function Ad(props) {
   const [phone, setPhone] = useState("");
   const [cpf, setCpf] = useState("");
   const [message, setMessage] = useState("");
+  const [cidade, setCidade] = useState("");
+
+
   function handleSubmit(data, { resetForm }) {
     const id = getSetId();
     const userName = getUsername();
-    const obj = { ...data, user_id: id, user_name: userName };
+    const obj = { ...data, user_id: id, user_name: userName ,city:cidade};
 
     api.post("/ads", obj).then(
       response => {
@@ -29,7 +68,7 @@ function Ad(props) {
       }
     );
     resetForm();
-    console.log(data);
+
   }
   return (
     <Fragment>
@@ -77,11 +116,26 @@ function Ad(props) {
                   </div>
                   <div className="form-group col-md-4">
                     <label htmlFor="state">Estado</label>
-                    <Input name="state" className="form-control" />
+                    <Select
+                        onChange={ e => buscaCidades(e.target.value)}
+                        name="state"
+                        placeholder="Seu estado"
+                        className="form-control"
+                        options={options} />
                   </div>
                   <div className="form-group col-md-4">
                     <label htmlFor="city">Cidade</label>
-                    <Input name="city" className="form-control" />
+                    <select
+                        id='cidade'
+                        type="text"
+                        name="city"
+                        value={cidade}
+                        onChange={e => setCidade(e.target.value)}
+                        placeholder="Sua cidade"
+                        className="form-control"
+
+                      >
+                         </select>
                   </div>
                   <div className="form-group col-md-4">
                     <label htmlFor="code">Código do vendedor</label>
