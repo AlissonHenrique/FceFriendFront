@@ -1,19 +1,59 @@
 import React, { useState, Fragment } from "react";
-import { Form, Input } from "@rocketseat/unform";
+import { Form, Input,Select } from "@rocketseat/unform";
 import { withRouter } from "react-router-dom";
 import * as Yup from "yup";
 import api from "../../../services/api";
 import "./styles.css";
 import { phoneMask, cpfMask } from "../../../utils/masks";
 import Logo from "../../../assets/img/logofechouganhou.png";
-
 import Navbar from "../../components/Navbar";
+import {json_cidades,options} from './estados_cidades'
+
+
+
+function buscaCidades(e){
+
+  document.querySelector("#cidade").innerHTML = '';
+  var cidade_select = document.querySelector("#cidade");
+
+  var num_estados = json_cidades.estados.length;
+
+  var j_index = -1;
+
+  // aqui eu pego o index do Estado dentro do JSON
+  for(var x=0;x<num_estados;x++){
+     if(json_cidades.estados[x].sigla === e){
+        j_index = x;
+
+     }
+  }
+  if(j_index !== -1){
+   // aqui eu percorro todas as cidades e crio os OPTIONS
+
+     json_cidades.estados[j_index].cidades.forEach(function(cidade){
+
+
+        var cid_opts = document.createElement('option');
+        cid_opts.setAttribute('value',cidade)
+        cid_opts.innerHTML = cidade;
+        cidade_select.appendChild(cid_opts);
+
+     });
+
+  }else{
+     document.querySelector("#cidade").innerHTML = '';
+
+  }
+}
+
+
 
 function Signup(props) {
   const { history } = props;
   const [phone, setPhone] = useState("");
   const [cpf, setCpf] = useState("");
   const [message, setMessage] = useState("");
+  const [cidade, setCidade] = useState("");
 
   const schema = Yup.object().shape({
     name: Yup.string().required("*Preencha o campo Nome"),
@@ -34,8 +74,10 @@ function Signup(props) {
   });
 
   function handleSubmit(data) {
-    console.log(data);
-    api.post("/users", data).then(
+
+    const dados ={...data, city:cidade}
+    console.log(dados);
+    api.post("/users", dados).then(
       response => {
         console.log(response);
         history.push("/signin");
@@ -59,7 +101,7 @@ function Signup(props) {
             </div>
             <div className="col-md-8 offset-md-2">
               <div className="card">
-                <Form onSubmit={handleSubmit} schema={schema}>
+                <Form onSubmit={handleSubmit}  >
                   <br />
 
                   <h1>Cadastro</h1>
@@ -108,21 +150,27 @@ function Signup(props) {
                   </div>
                   <div className="form-row">
                     <div className="form-group col-md-6">
-                      <Input
-                        type="text"
+                    <Select
+                        onChange={ e => buscaCidades(e.target.value)}
                         name="state"
                         placeholder="Seu estado"
                         className="form-control"
-                      />
+                        options={options} />
+
                       <span>&nbsp;</span>
                     </div>
                     <div className="form-group col-md-6">
-                      <Input
+                      <select
+                        id='cidade'
                         type="text"
                         name="city"
+                        value={cidade}
+                        onChange={e => setCidade(e.target.value)}
                         placeholder="Sua cidade"
                         className="form-control"
-                      />
+
+                      >
+                         </select>
                       <span>&nbsp;</span>
                     </div>
                   </div>
